@@ -1,0 +1,68 @@
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doral Medical Research - Contact Us</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Doral Medical Research</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Participant Pre-Screening Inquiry</h2>
+            <p>Interested in participating in our active clinical studies? Fill out the form below to connect with our recruitment team.</p>
+            
+            <form id="prescreen-form" action="#" method="POST" novalidate>
+                <fieldset>
+                    <legend>Participant Information</legend>
+                    
+                    <div class="form-group">
+                        <label for="fullname">Full Name:</label>
+                        <input type="text" id="fullname" name="fullname" required autocomplete="name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" required autocomplete="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="123-456-7890">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dob">Date of Birth:</label>
+                        <input type="date" id="dob" name="dob" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="study-interest">Select Therapeutic Area:</label>
+                        <select id="study-interest" name="study-interest" required>
+                            <option value="">--Please choose an option--</option>
+                            <option value="cardiology">Cardiology</option>
+                            <option value="endocrinology">Endocrinology (Metabolic)</option>
+                            <option value="general">General Clinical Trial</option>
+                        </select>
+                    </div>
+                </fieldset>
+                <button type="submit">Submit Inquiry</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 Doral Medical Research. All rights reserved.</p>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
