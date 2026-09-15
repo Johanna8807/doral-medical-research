@@ -13,6 +13,7 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
             </ul>
         </nav>
@@ -23,13 +24,14 @@
             <p>We partner with major pharmaceutical sponsors including Sanofi and AstraZeneca to execute Phase II-IV clinical trials across multiple therapeutic areas.</p>
 
             <div class="filter-wrapper">
-                <label for="area-filter">Filtrar por Área Terapéutica:</label>
+                <label for="area-filter">Filter by Therapeutic Area:</label>
                 <select id="area-filter">
                     <option value="all">Todas las Áreas Terapéuticas</option>
                     <option value="cardiology">Cardiología</option>
                     <option value="endocrinology">Endocrinología (Metabólica)</option>
                     <option value="general">Ensayos Clínicos Generales</option>
                 </select>
+                <p id="filter-notice" class="restore-notice" role="status" aria-live="polite" hidden></p>
             </div>
 
             <div id="trials-container" class="trials-grid"></div>
