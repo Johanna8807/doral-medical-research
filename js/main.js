@@ -1,4 +1,3 @@
-JavaScript
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('prescreen-form');
 
@@ -79,8 +78,55 @@ document.addEventListener('DOMContentLoaded', () => {
                 };
 
                 localStorage.setItem('doral_participant_inquiry', JSON.stringify(formData));
-                alert('Inquiry successfully saved to LocalStorage!');
+                const status = document.getElementById('form-status');
+                if (status) {
+                    status.textContent = 'Thank you, ' + formData.fullname + '. Your inquiry has been received. Our recruitment team will contact you shortly.';
+                    status.hidden = false;
+                }
+                form.reset();
             }
         });
+    }
+});
+
+// --- Listado y filtrado de estudios (services.html) ---
+// DATOS DE EJEMPLO: sustituir por los estudios reales del centro.
+const TRIALS = [
+    { id: 'DMR-CARD-01', area: 'cardiology',     title: 'Hipertensión resistente', phase: 'Fase III', desc: 'Estudio de tratamiento añadido en adultos con presión arterial no controlada con dos o más fármacos.' },
+    { id: 'DMR-CARD-02', area: 'cardiology',     title: 'Insuficiencia cardíaca crónica', phase: 'Fase II', desc: 'Evaluación de una terapia complementaria en pacientes con fracción de eyección reducida.' },
+    { id: 'DMR-ENDO-01', area: 'endocrinology',  title: 'Diabetes tipo 2', phase: 'Fase III', desc: 'Control glucémico en adultos con diabetes tipo 2 tratados con metformina.' },
+    { id: 'DMR-ENDO-02', area: 'endocrinology',  title: 'Obesidad y síndrome metabólico', phase: 'Fase II', desc: 'Estudio de pérdida de peso y perfil metabólico en adultos con IMC ≥ 30.' },
+    { id: 'DMR-GEN-01',  area: 'general',        title: 'Registro de voluntarios sanos', phase: 'Fase I', desc: 'Banco de participantes para estudios de farmacocinética y biodisponibilidad.' }
+];
+
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('trials-container');
+    const filter = document.getElementById('area-filter');
+
+    if (!container) return; // Esta página no es services.html
+
+    const render = (area) => {
+        const list = (area === 'all') ? TRIALS : TRIALS.filter(t => t.area === area);
+
+        if (!list.length) {
+            container.innerHTML = '<p class="no-results">No hay estudios abiertos en esta área ahora mismo.</p>';
+            return;
+        }
+
+        container.innerHTML = list.map(t => `
+            <article class="study-card">
+                <span class="phase">${t.phase}</span>
+                <h3>${t.title}</h3>
+                <p>${t.desc}</p>
+                <p><small>Protocolo: ${t.id}</small></p>
+                <a class="btn-select" href="contact.html">Solicitar información</a>
+            </article>
+        `).join('');
+    };
+
+    render('all');
+
+    if (filter) {
+        filter.addEventListener('change', () => render(filter.value));
     }
 });
