@@ -1,10 +1,9 @@
-HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Doral Medical Research - Contact Us</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -22,28 +21,32 @@ HTML
             <h2>Participant Pre-Screening Inquiry</h2>
             <p>Interested in participating in our active clinical studies? Fill out the form below to connect with our recruitment team.</p>
             
-            <form id="prescreen-form" action="#" method="POST" novalidate>
+            <form id="prescreen-form" novalidate>
                 <fieldset>
                     <legend>Participant Information</legend>
                     
                     <div class="form-group">
                         <label for="fullname">Full Name:</label>
                         <input type="text" id="fullname" name="fullname" required autocomplete="name">
+                        <span class="error" id="fullname-error"></span>
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email Address:</label>
                         <input type="email" id="email" name="email" required autocomplete="email">
+                        <span class="error" id="email-error"></span>
                     </div>
 
                     <div class="form-group">
                         <label for="phone">Phone Number:</label>
                         <input type="tel" id="phone" name="phone" required placeholder="123-456-7890">
+                        <span class="error" id="phone-error"></span>
                     </div>
 
                     <div class="form-group">
                         <label for="dob">Date of Birth:</label>
                         <input type="date" id="dob" name="dob" required>
+                        <span class="error" id="dob-error"></span>
                     </div>
 
                     <div class="form-group">
@@ -54,6 +57,7 @@ HTML
                             <option value="endocrinology">Endocrinology (Metabolic)</option>
                             <option value="general">General Clinical Trial</option>
                         </select>
+                        <span class="error" id="study-error"></span>
                     </div>
                 </fieldset>
                 <button type="submit">Submit Inquiry</button>
@@ -63,6 +67,6 @@ HTML
     <footer>
         <p>&copy; 2026 Doral Medical Research. All rights reserved.</p>
     </footer>
-    <script src="js/main.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
